@@ -84,11 +84,13 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding DiscoveryViewCommand}"/>
 
-                <RadioButton Content="Featured"
+                <RadioButton Content="Job List"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding JobListViewCommand}"/>
+                
 
             </StackPanel>
 

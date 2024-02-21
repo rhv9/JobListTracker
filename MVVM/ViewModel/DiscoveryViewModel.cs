@@ -8,5 +8,6 @@ namespace JobListTracker.MVVM.ViewModel
 {
     internal class DiscoveryViewModel
     {
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using JobListTracker.Core;
+using JobListTracker.MVVM.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,11 @@ namespace JobListTracker.MVVM.ViewModel
     {
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand DiscoveryViewCommand { get; set; }
-        public RelayCommand DragWindowCommand { get; set; }
+        public RelayCommand JobListViewCommand { get; set; }
 
         public HomeViewModel HomeVm { get; set; }
         public DiscoveryViewModel DiscoveryVm { get; set; }
+        public JobListViewModel JobListVm { get; set; }
 
         private object _currentView;
 
@@ -30,8 +32,12 @@ namespace JobListTracker.MVVM.ViewModel
 
         public MainViewModel()
         {
+            JobApplicationManager.Init();
+
             HomeVm = new HomeViewModel();
             DiscoveryVm = new DiscoveryViewModel();
+            JobListVm = new JobListViewModel();
+
             CurrentView = HomeVm;
 
             HomeViewCommand = new RelayCommand(o =>
@@ -44,9 +50,9 @@ namespace JobListTracker.MVVM.ViewModel
                 CurrentView = DiscoveryVm;
             });
 
-            DragWindowCommand = new RelayCommand(o =>
+            JobListViewCommand = new RelayCommand(o =>
             {
-                
+                CurrentView = JobListVm;
             });
         }
     }
