@@ -14,10 +14,12 @@ namespace JobListTracker.MVVM.ViewModel
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand DiscoveryViewCommand { get; set; }
         public RelayCommand JobListViewCommand { get; set; }
+        public RelayCommand AddUserViewCommand { get; set; }
 
         public HomeViewModel HomeVm { get; set; }
         public DiscoveryViewModel DiscoveryVm { get; set; }
         public JobListViewModel JobListVm { get; set; }
+        public AddUserViewModel AddUserVm { get; set; }
 
         private object _currentView;
 
@@ -37,6 +39,7 @@ namespace JobListTracker.MVVM.ViewModel
             HomeVm = new HomeViewModel();
             DiscoveryVm = new DiscoveryViewModel();
             JobListVm = new JobListViewModel();
+            AddUserVm = new AddUserViewModel();
 
             CurrentView = HomeVm;
 
@@ -53,6 +56,11 @@ namespace JobListTracker.MVVM.ViewModel
             JobListViewCommand = new RelayCommand(o =>
             {
                 CurrentView = JobListVm;
+            });
+
+            AddUserViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = AddUserVm;
             });
         }
     }

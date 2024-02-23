@@ -90,7 +90,14 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding JobListViewCommand}"/>
-                
+
+                <RadioButton Content="Add user"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding AddUserViewCommand}"/>
+
 
             </StackPanel>
 

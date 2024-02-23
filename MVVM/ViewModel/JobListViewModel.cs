@@ -1,4 +1,5 @@
-﻿using JobListTracker.MVVM.Model;
+﻿using JobListTracker.Core;
+using JobListTracker.MVVM.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,11 +11,8 @@ namespace JobListTracker.MVVM.ViewModel
 {
     internal class JobListViewModel
     {
-        public ObservableCollection<JobApplication> JobApps { get; set; }
-
         public JobListViewModel()
         {
-            JobApps = JobApplicationManager.GetJobApps();
         }
 
     }

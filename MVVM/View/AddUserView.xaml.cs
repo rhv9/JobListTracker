@@ -13,31 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace JobListTracker
+namespace JobListTracker.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddUserView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddUserView : UserControl
     {
-        private void Window_DragWindow(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                this.DragMove();
-            }
-
-            
-        }
-
-        public MainWindow()
+        public AddUserView()
         {
             InitializeComponent();
-        }
-
-        private void Window_ExitApplication(object sender, MouseButtonEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
