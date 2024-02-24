@@ -11,8 +11,11 @@ namespace JobListTracker.MVVM.ViewModel
 {
     internal class JobListViewModel
     {
+
+        public ObservableCollection<JobApplication> JobApps { get; set; }   
         public JobListViewModel()
         {
+            JobApps = JobApplicationManager.GetJobApps();
         }
 
     }

@@ -37,6 +37,7 @@
                     <Setter Property="Foreground" Value="White"/>
                     <Setter Property="Margin" Value="30, 0"/>
                 </Style>
+                
             </StackPanel.Resources>
             
             <StackPanel Orientation="Horizontal">
@@ -46,6 +47,7 @@
                          VerticalContentAlignment="Center"
                          Margin="5"
                          Style="{StaticResource ModernTextBox}"
+                         Text="{Binding JobTitle}"
                          FontSize="16"/>
             </StackPanel>
 
@@ -56,6 +58,7 @@
                          VerticalContentAlignment="Center"
                          Margin="5"
                          Style="{StaticResource ModernTextBox}"
+                         Text="{Binding URL}"
                          FontSize="16"/>
             </StackPanel>
 
@@ -66,6 +69,7 @@
                          VerticalContentAlignment="Top"
                          Margin="5"
                          Style="{StaticResource ModernTextBox}"
+                         Text="{Binding Note}"
                          FontSize="16"/>
             </StackPanel>
 
@@ -75,7 +79,8 @@
                          Height="40"
                          Margin="5"
                          Style="{StaticResource ModernTextBox}"
-                         FontSize="16"/>
+                         Text="{Binding CV}"
+                         FontSize="16" TextChanged="TextBox_TextChanged_1"/>
             </StackPanel>
         </StackPanel>
 
@@ -87,7 +92,20 @@
                 Margin="0,0,140,40"
                 Background="Transparent"
                 Foreground="White"
-                Style="{DynamicResource RoundedButton}"/>
+                Style="{DynamicResource RoundedButton}"
+                Command="{Binding AddJob}"/>
+
+
+        <Button Grid.Row="2" Content="Change var"
+                Width="80"
+                Height="30"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Margin="0,0,250,40"
+                Background="Transparent"
+                Foreground="White"
+                Style="{DynamicResource RoundedButton}"
+                Command="{Binding ChangeVar}"/>
 
     </Grid>
 </UserControl>

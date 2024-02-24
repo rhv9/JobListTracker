@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Background="Transparent">
     <UserControl.DataContext>
-        <viewModel:JobWindowViewModel/>
+        <viewModel:JobListViewModel/>
     </UserControl.DataContext>
     
     <Grid>
@@ -25,7 +25,7 @@
                 Height="30"
                 HorizontalAlignment="Right"
                 Margin="0,0,20,0"
-                Command="{Binding SwitchAddUserView}"/>
+                />
 
         <ListView Grid.Row="1"
                   Margin="20"

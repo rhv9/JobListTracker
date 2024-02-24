@@ -81,10 +81,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\JobWindowView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Theme\MenuButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,7 +100,6 @@
     <Compile Include="MVVM\ViewModel\AddUserViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\JobListViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\JobWindowViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\View\AddUserView.xaml.cs">
       <DependentUpon>AddUserView.xaml</DependentUpon>
@@ -114,9 +109,6 @@
     </Compile>
     <Compile Include="MVVM\View\JobListView.xaml.cs">
       <DependentUpon>JobListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\View\JobWindowView.xaml.cs">
-      <DependentUpon>JobWindowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

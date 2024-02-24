@@ -16,12 +16,12 @@ namespace JobListTracker.MVVM.Model
         private string _cv;
         private string _date = "n/a";
 
-        public int JobAppId { get { return _jobAppId; } set { OnPropertyChange("JobAppId"); _jobAppId = value; } }
-        public string JobTitle { get { return _jobTitle; } set { OnPropertyChange("JobTitle"); _jobTitle = value; } }
-        public string Url { get { return _url; } set { OnPropertyChange("JobAppId"); _url = value; } }
-        public string Note { get { return _note; } set { OnPropertyChange("JobAppId"); _note = value; } }
-        public string CV { get { return _cv; } set { OnPropertyChange("JobAppId"); _cv = value; } }   
-        public string Date { get { return _date; } set { OnPropertyChange("Date"); _date = value; } }   
+        public int JobAppId { get { return _jobAppId; } set { _jobAppId = value; OnPropertyChange("JobAppId"); } }
+        public string JobTitle { get { return _jobTitle; } set { _jobTitle = value; OnPropertyChange("JobTitle"); } }
+        public string Url { get { return _url; } set {_url = value; OnPropertyChange("JobAppId"); } }
+        public string Note { get { return _note; } set { _note = value; OnPropertyChange("JobAppId"); } }
+        public string CV { get { return _cv; } set { _cv = value; OnPropertyChange("JobAppId"); } }   
+        public string Date { get { return _date; } set { _date = value; OnPropertyChange("Date"); } }   
 
     }
 }

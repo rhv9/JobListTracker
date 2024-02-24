@@ -19,7 +19,7 @@
                         <Grid>
                             <Rectangle StrokeThickness="1"/>
                             <TextBox Margin="1"
-                                     Text="{TemplateBinding Text}"
+                                     Text="{Binding Path=Text, RelativeSource={RelativeSource TemplatedParent}}"
                                      FontSize="{TemplateBinding FontSize}"
                                      BorderThickness="0"
                                      Background="Transparent"
