@@ -20,12 +20,12 @@
         </Grid.RowDefinitions>
 
         <Button Style="{DynamicResource RoundedButton}" 
-                Content="Add job"
+                Content="Save"
                 Width="80"
                 Height="30"
                 HorizontalAlignment="Right"
                 Margin="0,0,20,0"
-                />
+                Command="{Binding SaveJobApps}"/>
 
         <ListView Grid.Row="1"
                   Margin="20"

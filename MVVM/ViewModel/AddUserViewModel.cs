@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JobListTracker.Core;
 using JobListTracker.MVVM.Model;
+using System.Data.SQLite;
 
 namespace JobListTracker.MVVM.ViewModel
 {
@@ -18,7 +20,7 @@ namespace JobListTracker.MVVM.ViewModel
         public string Note { get { return _note; } set { _note = value; OnPropertyChange(nameof(Note)); } }  
 
         public RelayCommand AddJob { get; set; }
-        public RelayCommand ChangeVar { get; set; }
+        public RelayCommand SqlTest { get; set; }
 
         public AddUserViewModel() 
         {
@@ -37,11 +39,6 @@ namespace JobListTracker.MVVM.ViewModel
                 JobApplicationManager.AddJobApp(newJobApp);
             });
 
-            ChangeVar = new RelayCommand(o =>
-            {
-                Console.WriteLine("Changing var...");
-                CV = "brep.pdf";
-            });
         }   
 
     }

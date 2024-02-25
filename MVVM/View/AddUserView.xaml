@@ -96,16 +96,5 @@
                 Command="{Binding AddJob}"/>
 
 
-        <Button Grid.Row="2" Content="Change var"
-                Width="80"
-                Height="30"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Right"
-                Margin="0,0,250,40"
-                Background="Transparent"
-                Foreground="White"
-                Style="{DynamicResource RoundedButton}"
-                Command="{Binding ChangeVar}"/>
-
     </Grid>
 </UserControl>
