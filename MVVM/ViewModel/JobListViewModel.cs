@@ -20,6 +20,7 @@ namespace JobListTracker.MVVM.ViewModel
             SaveJobApps = new RelayCommand(o =>
             {
                 JobApplicationManager.SaveToSQLite();
+
             });
         }
 

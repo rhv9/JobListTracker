@@ -43,7 +43,8 @@ namespace JobListTracker.MVVM.Model
                             job_title TEXT NOT NULL,
                             url TEXT,
                             note TEXT,
-                            cv TEXT
+                            cv TEXT,
+                            submit_date TEXT NOT NULL
                         );";
                     command.ExecuteNonQuery();
                 }
@@ -64,8 +65,9 @@ namespace JobListTracker.MVVM.Model
                         string url = reader.GetString(1);
                         string note = reader.GetString(2);
                         string cv = reader.GetString(3);
+                        string date = reader.GetString(4);
 
-                        JobApplication app = new JobApplication() { JobTitle = job_title, Url = url, Note = note, CV = cv };
+                        JobApplication app = new JobApplication() { JobTitle = job_title, Url = url, Note = note, CV = cv, Date=date };
                         AddJobApp(app);
                     }
                 }
@@ -91,7 +93,7 @@ namespace JobListTracker.MVVM.Model
                 return;
             }
 
-            string commandText = "INSERT INTO jobapplications(job_title, url, note, cv)\nVALUES";
+            string commandText = "INSERT INTO jobapplications(job_title, url, note, cv, submit_date)\nVALUES";
             int count = 0;
 
             for(int i = _DatabaseJobApp.Count - 1; i >= 0; i--)
@@ -102,7 +104,7 @@ namespace JobListTracker.MVVM.Model
                     break;
                 }
 
-                string newValues = $"('{jobApp.JobTitle}', '{jobApp.Url}', '{jobApp.Note}', '{jobApp.CV}'),\n";
+                string newValues = $"('{jobApp.JobTitle}', '{jobApp.Url}', '{jobApp.Note}', '{jobApp.CV}', '{jobApp.Date}'),\n";
                 commandText += newValues;
                 count++;
             }

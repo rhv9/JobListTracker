@@ -34,7 +34,10 @@ namespace JobListTracker.MVVM.ViewModel
                 }
                 Note = Note == null ? string.Empty : Note.Trim();
 
-                JobApplication newJobApp = new JobApplication() { JobTitle = JobTitle, CV = CV, Url = URL, Note = this.Note };
+                DateTime date = DateTime.Now;
+                string sqlFormattedDate = date.ToString("yyyy-MM-dd HH:mm:ss.fff");
+
+                JobApplication newJobApp = new JobApplication() { JobTitle = JobTitle, CV = CV, Url = URL, Note = this.Note, Date=sqlFormattedDate };
                 Console.WriteLine("Adding new Job: " + newJobApp.JobTitle);
                 JobApplicationManager.AddJobApp(newJobApp);
             });
