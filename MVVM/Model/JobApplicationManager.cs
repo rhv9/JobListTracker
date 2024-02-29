@@ -96,6 +96,8 @@ namespace JobListTracker.MVVM.Model
             string commandText = "INSERT INTO jobapplications(job_title, url, note, cv, submit_date)\nVALUES";
             int count = 0;
 
+            List<JobApplication> newJobs = new List<JobApplication>();
+
             for(int i = _DatabaseJobApp.Count - 1; i >= 0; i--)
             {
                 JobApplication jobApp = _DatabaseJobApp[i];
@@ -103,6 +105,14 @@ namespace JobListTracker.MVVM.Model
                 {
                     break;
                 }
+
+                newJobs.Add(jobApp);
+            }
+
+            // Add the new jobs in correct order (new Jobs is in reverse order)
+            for (int i = newJobs.Count - 1;i >= 0;i--)
+            {
+                JobApplication jobApp = newJobs[i];
 
                 string newValues = $"('{jobApp.JobTitle}', '{jobApp.Url}', '{jobApp.Note}', '{jobApp.CV}', '{jobApp.Date}'),\n";
                 commandText += newValues;
