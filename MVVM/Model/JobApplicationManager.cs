@@ -12,7 +12,7 @@ namespace JobListTracker.MVVM.Model
     public class JobApplicationManager
     {
         private static int _jobCount=0;
-        private static int _lastJobId = -1;
+        private static int _lastJobLoadedId = -1;
         private readonly static string _dbpath = "jobs.db";
 
         public static ObservableCollection<JobApplication> _DatabaseJobApp;
@@ -74,7 +74,7 @@ namespace JobListTracker.MVVM.Model
 
             }
 
-            _lastJobId = _jobCount-1;
+            _lastJobLoadedId = _jobCount-1;
         }
 
         internal static void SaveToSQLite()
@@ -86,7 +86,7 @@ namespace JobListTracker.MVVM.Model
                 return;
             }
 
-            if (_lastJobId == _jobCount-1)
+            if (_lastJobLoadedId == _jobCount-1)
             {
                 // no new jobs added so nothing to save
                 Console.WriteLine("[JobApplicationManager]: Nothing to save. No new entries.");
@@ -101,7 +101,7 @@ namespace JobListTracker.MVVM.Model
             for(int i = _DatabaseJobApp.Count - 1; i >= 0; i--)
             {
                 JobApplication jobApp = _DatabaseJobApp[i];
-                if (jobApp.JobAppId <= _lastJobId)
+                if (jobApp.JobAppId <= _lastJobLoadedId)
                 {
                     break;
                 }
@@ -123,6 +123,7 @@ namespace JobListTracker.MVVM.Model
             commandText += ";";
             Console.WriteLine("[JobApplicationManager]: Insertion sql command: \n " + commandText);
             
+            // upload to sqlite database
             using (SQLiteConnection conn = new SQLiteConnection($"Data Source={_dbpath}"))
             {
                 conn.Open();
@@ -135,6 +136,8 @@ namespace JobListTracker.MVVM.Model
                 Console.WriteLine($"[JobApplicationManager]: Expected Job Added: {count}, Reality:{rows}");
             }
 
+            // Update pointers
+            _lastJobLoadedId = _jobCount - 1;
         }
     }
 }

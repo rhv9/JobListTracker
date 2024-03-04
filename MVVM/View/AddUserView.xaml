@@ -73,14 +73,20 @@
                          FontSize="16"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="CV"/>
-                <TextBox Width="300"
+            <StackPanel Orientation="Horizontal" AllowDrop="True">
+                <TextBlock x:Name="TextBlock_CV"
+                           Text="CV"
+                           AllowDrop="True"
+                           DragDrop.Drop="TextBlock_CV_Drop"
+                           DragDrop.DragEnter="TextBlock_CV_DragEnter"
+                           DragDrop.DragOver="TextBlock_CV_DragOver"/>
+                <TextBox x:Name="TextBox_CV"
+                         Width="300"
                          Height="40"
                          Margin="5"
-                         Style="{StaticResource ModernTextBox}"
                          Text="{Binding CV}"
-                         FontSize="16" TextChanged="TextBox_TextChanged_1"/>
+                         Style="{DynamicResource ModernTextBox}"
+                         FontSize="16"/>
             </StackPanel>
         </StackPanel>
 
@@ -93,7 +99,7 @@
                 Background="Transparent"
                 Foreground="White"
                 Style="{DynamicResource RoundedButton}"
-                Command="{Binding AddJob}"/>
+                Command="{Binding AddJobCommand}"/>
 
 
     </Grid>

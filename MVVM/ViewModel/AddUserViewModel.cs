@@ -19,12 +19,13 @@ namespace JobListTracker.MVVM.ViewModel
         public string CV { get { return _cv; } set { _cv = value; OnPropertyChange(nameof(CV)); } }
         public string Note { get { return _note; } set { _note = value; OnPropertyChange(nameof(Note)); } }  
 
-        public RelayCommand AddJob { get; set; }
+        public RelayCommand AddJobCommand { get; set; }
         public RelayCommand SqlTest { get; set; }
+        public RelayCommand DropTextBox_CV_Command { get; set; }
 
         public AddUserViewModel() 
         {
-            AddJob = new RelayCommand(o =>
+            AddJobCommand = new RelayCommand(o =>
             {
                 if (JobTitle == null || CV == null || URL == null)
                 {
@@ -40,6 +41,12 @@ namespace JobListTracker.MVVM.ViewModel
                 JobApplication newJobApp = new JobApplication() { JobTitle = JobTitle, CV = CV, Url = URL, Note = this.Note, Date=sqlFormattedDate };
                 Console.WriteLine("Adding new Job: " + newJobApp.JobTitle);
                 JobApplicationManager.AddJobApp(newJobApp);
+            });
+
+            DropTextBox_CV_Command = new RelayCommand(o =>
+            {
+                string path = (string)(o);
+                this.CV = path;
             });
 
         }   
