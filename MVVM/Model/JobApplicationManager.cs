@@ -38,14 +38,23 @@ namespace JobListTracker.MVVM.Model
                 {
                     conn.Open();
                     SQLiteCommand command = conn.CreateCommand();
-                    command.CommandText =@"
+                    command.CommandText = @"
                         CREATE TABLE jobapplications (
                             job_title TEXT NOT NULL,
                             url TEXT,
                             note TEXT,
                             cv TEXT,
                             submit_date TEXT NOT NULL
-                        );";
+                        );
+
+                        CREATE TABLE cv (
+                            id TEXT NOT NULL,
+                            url TEXT,
+                            note TEXT,
+                            cv TEXT,
+                            submit_date TEXT NOT NULL
+                        );
+                        ";
                     command.ExecuteNonQuery();
                 }
                 return;

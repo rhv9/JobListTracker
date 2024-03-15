@@ -40,6 +40,8 @@ namespace JobListTracker.MVVM.ViewModel
 
                 JobApplication newJobApp = new JobApplication() { JobTitle = JobTitle, CV = CV, Url = URL, Note = this.Note, Date=sqlFormattedDate };
                 Console.WriteLine("Adding new Job: " + newJobApp.JobTitle);
+
+
                 JobApplicationManager.AddJobApp(newJobApp);
             });
 

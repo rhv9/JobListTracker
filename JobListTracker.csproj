@@ -123,6 +123,7 @@
   <ItemGroup>
     <Compile Include="MVVM\Model\JobApplication.cs" />
     <Compile Include="MVVM\Model\JobApplicationManager.cs" />
+    <Compile Include="MVVM\Model\PDFUtil.cs" />
     <Compile Include="MVVM\ViewModel\AddUserViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\JobListViewModel.cs" />
